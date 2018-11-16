@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import InputField from "./InputField";
+import Results from "./Results";
 
 class SearchWidgetForm extends Component {
   state = {
@@ -8,24 +10,13 @@ class SearchWidgetForm extends Component {
   render() {
     const { inputValue } = this.state;
     return (
-      <fieldset>
-        <label htmlFor="autocompleteInput">Pick-up Location</label>
-        <input
-          type="text"
-          name="autocompleteInput"
-          id="autocompleteInput"
-          value={inputValue}
-          onChange={event => this.updateInputValue(event.target.value)}
-          placeholder="city, airport, region, district..."
-          aria-required="true"
-          aria-autocomplete="list"
-          aria-haspopup="true"
+      <div>
+        <InputField
+          inputValue={inputValue}
+          updateInputValue={this.updateInputValue}
         />
-      </fieldset>
-
-      // todo:
-      // put fieldset in its own separate component (it should receive updateInputValue function via props)
-      // create results component that will receive inputValue via props in order to make api call
+        <Results inputValue={inputValue} />
+      </div>
     );
   }
 
