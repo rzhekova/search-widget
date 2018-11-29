@@ -146,3 +146,17 @@ span {
 .district {
   background-color: #70d58e;
 }
+
+@media all and (max-width: 560px) {
+  div.search-field {
+    width: 95%;
+  }
+
+  ul {
+    width: 86%;
+  }
+
+  form h2 {
+    font-size: 1.6em;
+  }
+}

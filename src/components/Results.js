@@ -9,8 +9,11 @@ class Results extends Component {
 
   componentDidUpdate(prevProps) {
     const { inputValue } = this.props;
+    // let timeoutID = null;
     if (prevProps.inputValue !== inputValue) {
       this.debouncedFetchLocations(inputValue);
+      // clearTimeout(timeoutID);
+      // timeoutID = setTimeout(this.fetchLocations(inputValue), 1000);
     }
   }
 
@@ -27,7 +30,7 @@ class Results extends Component {
               No results found
             </li>
           ) : (
-            <li role="menuitem" key={result.placeKey}>
+            <li key={result.placeKey}>
               <span className={placeType}>
                 {this.formatPlaceType(result.placeType)}
               </span>
@@ -87,7 +90,7 @@ class Results extends Component {
     }
   };
 
-  debouncedFetchLocations = debounce(this.fetchLocations, 300);
+  debouncedFetchLocations = debounce(this.fetchLocations, 250);
 }
 
 export default Results;

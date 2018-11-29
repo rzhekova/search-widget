@@ -11,10 +11,7 @@ class SearchWidgetForm extends Component {
     const { inputValue } = this.state;
     return (
       <div>
-        <InputField
-          inputValue={inputValue}
-          updateInputValue={this.updateInputValue}
-        />
+        <InputField updateInputValue={this.updateInputValue} />
         <Results inputValue={inputValue} />
       </div>
     );
